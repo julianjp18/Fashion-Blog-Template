@@ -1,0 +1,446 @@
+body{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: repeat(4, 1fr);
+  grid-template: "header header header"
+                  "main main main"
+                  "posts posts info"
+                  "footer footer footer";
+  grid-column-gap: 30px;
+  background:#f1f1f1;
+
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.loader-container{
+  background-color: rgba(250, 240, 245, .9);
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  transition: all 1s ease;
+  z-index: 10;
+}
+
+.loader{
+  height: 100px;
+  width: 100px;
+  border: 15px solid #ccc;
+  border-top-color: #f44336;
+  border-top-style: groove;
+  border-radius: 100%;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+
+  animation: girar 1.5s linear infinite;
+
+}
+
+@keyframes girar{
+ from{
+  transform: rotate(0deg);
+ } to{
+  transform: rotate(360deg);
+ }
+}
+
+h1,h2,h3,h4,h5,a,.title-description{
+  font-family: 'Oswald', sans-serif;
+}
+.header-container{
+  grid-area: header;
+  color: white;
+}
+
+.header-container .social-content{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background: rgba(33, 28, 31, 1);
+}
+
+.social-content .social-li{
+  list-style: none;
+  padding: .5% 0 .5% 0;
+}
+
+.social-content .social-li .social-link{
+  text-decoration: none;
+  color: white;
+}
+.social-content .social-li .social-link:hover{
+  color: #525252
+}
+
+.main-container{
+  width: 100%;
+  height: 95vh;
+  background: url(https://images.pexels.com/photos/291762/pexels-photo-291762.jpeg);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  grid-area: main;
+}
+
+.main-content{
+  grid-area: content;
+      /* padding: 15vh 0 0 0; */
+}
+
+.main-container .bg-main{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 100px;
+  grid-template: "."
+  "content"
+  "suscribe";
+  width: 100%;
+  height: 95vh;
+  background: rgba(33, 28, 31, .4);
+  color: white;
+}
+
+.main-content h1{
+  font-size: 80px;
+  font-weight: 700;
+  margin-left: 1ch;
+  letter-spacing: 4px;
+}
+
+.main-content h3{
+  font-size: 27px;
+  font-weight: 400;
+  margin-left: 3ch;
+}
+
+.suscribe-link{
+  grid-area: suscribe;
+}
+
+.suscribe-link a{
+  font-size: 25px;
+  background: rgba(255, 255, 255, .8);
+  padding: .5em 1.5em;
+  margin: 0 0 0 3ch;
+  text-decoration: none;
+  color: rgba(33, 28, 31, .9);
+}
+
+.suscribe-link a:hover{
+  color: #000;
+  background-color: #ccc;
+}
+
+.posts-container{
+  grid-area: posts;
+  margin-top: 2em;
+  margin-left: 2em;
+}
+
+.post-item .image-post{
+  max-width: 100%;
+}
+
+.posts-container .post-item{
+  background: white;
+  margin-top: 2em;
+}
+
+.posts-container .post-item:first-child{
+  margin-top: 0;
+}
+
+.posts-container .post-item h2{
+  padding: 20px 0 0 0;
+}
+
+.posts-container .post-item h2, .posts-container .post-item .title-description{
+  text-align: center
+}
+
+.posts-container .post-item .title-description{
+  font-weight: 400;
+  margin: 10px 0;
+}
+
+.posts-container .post-item .title-description span{
+  color: gray;
+}
+
+.posts-container .post-item .description-post{
+  font-family: "Oswald";
+  font-weight: 400;
+  padding-top: 1em;
+}
+
+.posts-container .post-item .description-post,
+.posts-container .post-item .button-post,
+.posts-container .post-item .profile-post{
+  padding-left: 1em;
+} 
+
+.posts-container .post-item .button-post{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 1em;
+  margin-bottom: 2em;
+}
+
+.posts-container .post-item .button-post a{
+  text-decoration: none;
+  background: black;
+  color: white;
+  padding: 1em 2em;
+  letter-spacing: 3px;
+  font-weight: 500
+}
+
+.posts-container .post-item .button-post a .number{
+  background: white;
+  color: black;
+  padding: 2px 6px;
+}
+
+.posts-container .post-item .button-post a .fas{
+  font-size: 20px;
+}
+
+.posts-container .post-item .profile-post{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 10px;
+  padding-bottom: 1em;
+}
+
+.posts-container .post-item .profile-post .avatar-post{
+  max-width: 25%;
+  border-radius: 50vh;
+  justify-self: end
+}
+.posts-container .post-item .profile-post .info-profile{
+  font-family: "Oswald";
+  align-self: center;
+}
+
+.posts-container .post-item .profile-post .info-profile .name-profile{
+  font-size: 30px;
+}
+
+.posts-container .post-item .profile-post .info-profile .date-post{
+  font-size: 20px;
+  font-weight: 400;
+  color: #525252;
+}
+
+
+.info-container{
+  grid-area: info;
+  margin-top: 2em;
+  margin-right: 2em;
+}
+
+.info-container img{
+  max-width: 100%;
+}
+
+.info-container .info-description-content{
+  background: black;
+  color: white;
+  margin-bottom: 1em;
+}
+
+.info-container .info-description-content h3{
+  padding: 1em 0 .5em 1em;
+}
+
+.info-container .info-description-content p{
+  font-family: "Open Sans";
+  padding: 0 1em 1em 1em;
+}
+
+.info-container .popular-posts-content{
+  background: white;
+}
+
+.info-container .popular-posts-content .p-title{
+  background: black;
+  color: white;
+  padding: 1em 1em;
+  font-weight: 100;
+  font-size: 20px;
+}
+
+.info-container .popular-posts-content .p-post-item{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  border-top: 1px solid #525252;
+}
+
+.info-container .popular-posts-content .p-post-item:hover{
+  background: rgba(33, 28, 31, .4);
+  cursor: pointer;
+}
+
+
+.info-container .popular-posts-content .p-post-item img{
+  width: 50%;
+  height: 50%;
+}
+
+.info-container .popular-posts-content .p-post-item .name-post-item{
+  align-self: center;
+  font-family: Oswald;
+  font-size: 28px;
+  padding-left: 1em;
+}
+
+.info-container .advertise-content{
+  margin-top: 2em;
+  background: white;
+  padding-bottom: .1em;
+
+}
+
+.info-container .advertise-content .advertise-title{
+  background: black;
+  color: white;
+  padding: 1em 1em;
+  font-weight: 100;
+  font-size: 20px;
+}
+
+.info-container .advertise-content p{
+  padding: 5em 5em 5em 5em;
+  text-align: center;
+  background: #c2c2c2;
+  margin: 1em; 
+}
+
+.info-container .tags-content{
+  margin-top: 2em;
+  background: white;
+}
+
+.info-container .tags-content .tags-title{
+  background: black;
+  color: white;
+  padding: 1em 1em;
+  font-weight: 100;
+  font-size: 20px;
+}
+
+.info-container .tags-content .spans-tags{
+  padding: 1em;
+}
+
+.info-container .tags-content .spans-tags span{
+  background: #ececec;
+  padding: .2em;
+  font-family: "Open Sans";
+  font-size: 15px;
+}
+
+.info-container .suscribe-content{
+  margin-top: 2em;
+  background: white;
+}
+
+.info-container .suscribe-content .suscribe-title{
+  background: black;
+  color: white;
+  padding: 1em 1em;
+  font-weight: 100;
+  font-size: 20px;
+}
+
+.info-container .suscribe-content .suscribe-form{
+  padding-bottom: 1em;
+}
+
+.info-container .suscribe-content .suscribe-form p{
+  margin: 1em;
+  font-family: "Open Sans";
+}
+
+.info-container .suscribe-content .suscribe-form input{
+  padding: 8px;
+  display: block;
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+  font-size: 18px;
+  border: 1px solid #ccc;
+}
+
+.info-container .suscribe-content .suscribe-form form .btn-submit{
+  color: #fff;
+  background-color: #f44336;
+  display: block;
+  width: 93%;
+  padding: 1em;
+  font-size: 18px;
+  margin: auto;
+  border: none;
+}
+
+.info-container .suscribe-content .suscribe-form form .btn-submit:hover{
+  background: #ccc;
+  color: black;
+}
+
+.footer-container{
+  grid-area: footer;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background: #ccc;
+  padding: 3em;
+  margin-top: 2em;
+}
+.footer-container a{
+  text-decoration: none;
+  font-size: 30px;
+  color: black;
+}
+
+.footer-container a:hover{
+  text-decoration: underline;
+}
+
+.footer-container span{
+  font-size: larger;
+}
+
+
+@media (max-width: 600px) {
+  body{
+    grid-gap: 0;
+    grid-template-rows: auto 1fr auto auto auto;
+    grid-template-columns: 1fr;
+    grid-template-areas: "header "
+                       "main"
+                       "posts"
+                       "info  "
+                       "footer ";
+  }
+
+  .posts-container {
+    margin-left: 0;
+  }
+  .info-container {
+    margin-right: 0;
+  }
+}
